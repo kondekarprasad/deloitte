@@ -1,0 +1,45 @@
+package com.dates;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+public class Date_Add_Time {
+
+	public static void main(String[] args) throws ParseException {
+
+		String s1 = "23:59:59";
+
+		String s2 = "22:59:59";
+
+		Calendar c1 = Calendar.getInstance();
+
+		Calendar c2 = Calendar.getInstance();
+
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+
+		Date d1 = sdf.parse(s1);
+
+		Date d2 = sdf.parse(s2);
+
+		c1.setTime(d1);
+
+		c2.setTime(d2);
+
+		c1.add(Calendar.HOUR_OF_DAY, c2.get(Calendar.HOUR_OF_DAY));
+
+		c1.add(Calendar.MINUTE, c2.get(Calendar.MINUTE));
+
+		c1.add(Calendar.SECOND, c2.get(Calendar.SECOND));
+
+		c1.add(Calendar.DATE, -1);
+
+		Date d3 = c1.getTime();
+
+		sdf.applyPattern("dd:HH:mm:ss");
+		System.out.println(sdf.format(d3));
+
+	}
+
+}

@@ -1,0 +1,70 @@
+package set1.copy;
+/*41.input1={1,2,3}
+input2={3,4,5}
+input3;+(union)
+output:inp1+inp2
+
+input1:{1,2,3,4,5}
+input 2:{2,3,4,5}
+input3=*(intersection)
+output:inp1*inp2
+
+INPUT1:{1,2,3,4,5}
+INPUT2:{3,6,7,8,9}
+INPUT3:-(MINUS)
+output:inp1-inp2*/
+
+
+import java.util.ArrayList;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+public class ArrayUnionInterMinus {
+
+	public static int[] arrayFunctions(int[] a, int[] b, int c) {
+		List<Integer> l1=new ArrayList<Integer>();
+		List<Integer> l2=new ArrayList<Integer>();
+		List<Integer> l3=new ArrayList<Integer>();
+		for(int i=0;i<a.length;i++)
+			l1.add(a[i]);
+		for(int i=0;i<b.length;i++)
+			l2.add(b[i]);
+		
+		switch(c){
+		case 1:
+			l1.removeAll(l2);
+			l1.addAll(l2);
+			Collections.sort(l1);
+			l3=l1;
+			break;
+		case 2:
+			l1.retainAll(l2);
+			Collections.sort(l1);
+			l3=l1;
+			break;
+		case 3:
+			if(l1.size()==l2.size())
+				for(int i=0;i<l1.size();i++)
+					l3.add(Math.abs(l2.get(i)-l1.get(i)));
+			break;
+		}
+		int[] d=new int[l3.size()];
+		for(int i=0;i<d.length;i++)
+			d[i]=l3.get(i);
+		return d;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] a={1,2,3,4,5};
+		int[] b={0,2,4,6,8};
+		Scanner s=new Scanner(System.in);
+		int c=s.nextInt();
+		int d[]=arrayFunctions(a,b,c);
+		for(int e:d)
+			System.out.println(e);
+
+	}
+
+}

@@ -1,0 +1,32 @@
+package set1.copy;
+/*35.validate the ip address in the form a.b.c.d
+where a,b,c,d must be between 0and 255
+if validated return 1 else return 2*/
+
+import java.util.StringTokenizer;
+
+public class ValidateIp {
+	public static boolean validateIpAddress(String ipAddress) {
+		boolean b1=false;
+		StringTokenizer t=new StringTokenizer(ipAddress,".");
+		int a=Integer.parseInt(t.nextToken());
+		int b=Integer.parseInt(t.nextToken());
+		int c=Integer.parseInt(t.nextToken());
+		int d=Integer.parseInt(t.nextToken());
+		if((a>=0 && a<=255)&&(b>=0 && b<=255)&&(c>=0 && c<=255)&&(d>=0 && d<=255))
+			b1=true;
+		return b1;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String ipAddress="010.230.110.160";
+	    boolean b=validateIpAddress(ipAddress);
+	    if(b==true)
+	    	System.out.println("valid ipAddress");
+	    else
+	    	System.out.println("not a valid ipAddress");
+	}
+
+	}
+
+
