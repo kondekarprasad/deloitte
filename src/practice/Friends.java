@@ -1,0 +1,21 @@
+
+
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+
+public class Friends {
+	public static void main(String[] args) {
+		LinkedHashSet<String> linkedHashSet = new LinkedHashSet<String>();
+		linkedHashSet.add("Ravish");
+		linkedHashSet.add("Vijay");
+		linkedHashSet.add("Ravish");
+		linkedHashSet.add("Arjun");
+		
+		Iterator<String> iterator=linkedHashSet.iterator();
+		while (iterator.hasNext()) {
+			System.out.println( iterator.next());
+			
+		}
+	}
+
+}
